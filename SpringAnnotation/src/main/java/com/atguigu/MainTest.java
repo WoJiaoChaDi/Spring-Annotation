@@ -16,7 +16,7 @@ public class MainTest {
 
         //通过配置类获取
         ApplicationContext ctx_config = new AnnotationConfigApplicationContext(MainConfig.class);
-        Person person_config = (Person) ctx_config.getBean("person_config");
+        Person person_config = (Person) ctx_config.getBean("person");
         System.out.println(person_config);
 
     }
