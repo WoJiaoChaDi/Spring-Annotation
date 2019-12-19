@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class MainConfig {
 
+    //@Bean默认是以方法名当做 bean 的 id
     @Bean
     public Person person_config(){
         return new Person("李四", 24);
