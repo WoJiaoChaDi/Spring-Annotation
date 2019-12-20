@@ -20,7 +20,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class MainConfigOfLifeCycle {
 
-    @Bean(initMethod = "init", destroyMethod = "destroy")
+    @Bean(initMethod = "initMethod", destroyMethod = "destroyMethod")
     public Car car(){
         return new Car();
     }
