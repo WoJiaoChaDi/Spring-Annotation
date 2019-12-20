@@ -1,6 +1,7 @@
 package com.atguigu.config;
 
 import com.atguigu.bean.Person;
+import com.atguigu.service.BookService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScans;
@@ -19,19 +20,28 @@ import org.springframework.stereotype.Service;
                 //excludeFilters = {@ComponentScan.Filter(type = FilterType.ANNOTATION, classes = {Controller.class, Service.class})}
                 //指定部分扫描，需要关闭默认的  userDefaultFilters
                 useDefaultFilters = false,
-                includeFilters = {@ComponentScan.Filter(type = FilterType.ANNOTATION, classes = {Controller.class})}
+                includeFilters = {
+                                    //按照注解
+                                    //@ComponentScan.Filter(type = FilterType.ANNOTATION, classes = {Controller.class}),
+                                    ////按照类型
+                                    //@ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = {BookService.class}),
+                                    //按照正则表达式
+                                    //@ComponentScan.Filter(type = FilterType.REGEX, )
+                                    //自定义规则
+                                    @ComponentScan.Filter(type = FilterType.CUSTOM, classes = {MyTypeFilter.class})
+                                    }
                 )
 //扫描多个
-@ComponentScans(value = {
-        @ComponentScan(
-                //扫描指定的包
-                value = "com.atguigu"
-        ),
-        @ComponentScan(
-                //扫描指定的包
-                value = "com.atguigu.bean"
-        )
-})
+//@ComponentScans(value = {
+//        @ComponentScan(
+//                //扫描指定的包
+//                value = "com.atguigu"
+//        ),
+//        @ComponentScan(
+//                //扫描指定的包
+//                value = "com.atguigu.bean"
+//        )
+//})
 public class MainConfig {
 
     //@Bean默认是以方法名当做 bean 的 id
