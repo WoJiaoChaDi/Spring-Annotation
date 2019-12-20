@@ -13,10 +13,6 @@ public class SpringAnnotationIOCOfLiceCycleTest {
     public void test01(){
         //1.创建ioc容器
         AnnotationConfigApplicationContext cxt = new AnnotationConfigApplicationContext(MainConfigOfLifeCycle.class);
-        //String[] definitionNames = cxt.getBeanDefinitionNames();
-        //for (String beanName : definitionNames) {
-        //    System.out.println(beanName);
-        //}
 
         //容器关闭
         cxt.close();

@@ -1,8 +1,10 @@
 package com.atguigu.config;
 
 import com.atguigu.bean.Car;
+import com.atguigu.bean.MyBeanPostProcessor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 
 /*
 * 1.构造方法
@@ -16,7 +18,7 @@ import org.springframework.context.annotation.Configuration;
 * 3.销毁方法：单实例在容器关闭的时候执行，多实例容器不会处理
 *       适合定义一些：连接、数据源的关闭
 * */
-
+@Import({MyBeanPostProcessor.class})
 @Configuration
 public class MainConfigOfLifeCycle {
 
