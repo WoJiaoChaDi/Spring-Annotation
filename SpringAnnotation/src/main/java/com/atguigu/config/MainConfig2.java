@@ -20,9 +20,10 @@ public class MainConfig2 {
      * SCOPE_SESSION：同一个session，创建一个实例
      *
      * */
-    @Scope("prototype")//默认是单实例，这里改成多实例
+    //@Scope("prototype")//默认是单实例，这里改成多实例
     @Bean("person")
     public Person person(){
+        System.out.println("给容器中添加Person");
         return new Person("王五", 25);
     }
 }
