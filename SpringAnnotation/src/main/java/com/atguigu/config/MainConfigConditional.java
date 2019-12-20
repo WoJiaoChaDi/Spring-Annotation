@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 //满足当前条件，这个类中的所有的bean都注册生效
 @Conditional({WindowsCondition.class})
 @Configuration
-public class MainConfig3 {
+public class MainConfigConditional {
 
     /*
     * @Conditional({Condition})：按照一定条件进行判断，满足条件给容器中注册bean

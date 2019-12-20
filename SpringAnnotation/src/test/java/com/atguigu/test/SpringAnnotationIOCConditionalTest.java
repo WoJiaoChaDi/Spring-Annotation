@@ -1,20 +1,19 @@
 package com.atguigu.test;
 
 import com.atguigu.bean.Person;
-import com.atguigu.config.MainConfig3;
+import com.atguigu.config.MainConfigConditional;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.Environment;
 
 import java.util.Map;
 
-public class SpringAnnotationIOCTest3 {
+public class SpringAnnotationIOCConditionalTest {
 
     @Test
     public void test01(){
-        ApplicationContext cxt = new AnnotationConfigApplicationContext(MainConfig3.class);
+        ApplicationContext cxt = new AnnotationConfigApplicationContext(MainConfigConditional.class);
 
         //动态获取操作系统
         Environment environment = cxt.getEnvironment();
