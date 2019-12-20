@@ -5,10 +5,14 @@ import com.atguigu.config.MainConfigOfAutowired;
 import com.atguigu.dao.BookDao;
 import com.atguigu.service.BookService;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Primary;
+
+import javax.annotation.Resource;
+import javax.inject.Inject;
 
 public class SpringAnnotationIOCAutowiredTest {
 
@@ -23,6 +27,16 @@ public class SpringAnnotationIOCAutowiredTest {
         //          3.@Qualifier("bookDao2") 强制指定注入的bean名称
         //          4.@Autowired(required=false) 允许容器中没有bean，则不自动注入
         //          5.@Primary：让Sping自动注入的时候，首选装配的bean
+
+        //Spring还支持使用@Resource 和 @Inject 注解，两者都是Java规范
+
+        //@Resource:
+        //    可以和@Autowired一样实现自动装备功能，默认是按照组件名称进行装配的。
+        //    不支持@Primary，也不支持@Autowired(required=false)
+
+        //@Inject
+        //    需要导入javax.inject的包，和Autowired一样。没有@Autowired(required=false)功能
+        //    @Autowired是Spring定义的，而@Resource、@Inject是Java规范
         BookService bookService = (BookService) cxt.getBean("bookService");
         bookService.print();
 
