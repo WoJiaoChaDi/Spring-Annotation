@@ -20,7 +20,7 @@ public class SpringAnnotationIOCTest2 {
         //默认是单实例的
         Object bean1 = cxt.getBean(Person.class);
         Object bean2 = cxt.getBean(Person.class);
-        System.out.println(bean1 == bean2);
+        System.out.println("@Bean默认是单实例的：" + bean1 == bean2);
     }
 
 }
