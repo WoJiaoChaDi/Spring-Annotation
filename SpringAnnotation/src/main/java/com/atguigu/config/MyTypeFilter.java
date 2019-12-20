@@ -27,6 +27,11 @@ public class MyTypeFilter implements TypeFilter{
         String className = classMetadata.getClassName();
         System.out.println("MyTypeFilter ---> " + className);
 
+        //匹配class名字中含有er的类
+        if(className.contains("er")){
+            return true;
+        }
+
         return false;
     }
 }
