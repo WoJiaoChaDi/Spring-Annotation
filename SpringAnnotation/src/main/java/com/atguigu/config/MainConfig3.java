@@ -7,6 +7,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
 
+//满足当前条件，这个类中的所有的bean都注册生效
+@Conditional({WindowsCondition.class})
 @Configuration
 public class MainConfig3 {
 
