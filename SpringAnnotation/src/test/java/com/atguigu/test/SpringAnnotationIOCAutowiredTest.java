@@ -1,18 +1,14 @@
 package com.atguigu.test;
 
-import com.atguigu.config.MainConfig;
+import com.atguigu.bean.Boss;
+import com.atguigu.bean.Car;
+import com.atguigu.bean.Color;
 import com.atguigu.config.MainConfigOfAutowired;
 import com.atguigu.dao.BookDao;
 import com.atguigu.service.BookService;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.Primary;
-
-import javax.annotation.Resource;
-import javax.inject.Inject;
 
 public class SpringAnnotationIOCAutowiredTest {
 
@@ -42,6 +38,15 @@ public class SpringAnnotationIOCAutowiredTest {
 
         BookDao bookDao = (BookDao) cxt.getBean("bookDao");
         System.out.println(bookDao);
+
+
+        Car car = (Car) cxt.getBean("car");
+        Boss boss = (Boss) cxt.getBean("boss");
+        Color color = (Color) cxt.getBean("color");
+        System.out.println(car);
+        System.out.println(boss.getCar());
+        System.out.println(color.getCar());
+
 
 
     }

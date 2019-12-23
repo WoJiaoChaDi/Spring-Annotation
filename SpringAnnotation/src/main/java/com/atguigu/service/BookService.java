@@ -14,11 +14,11 @@ public class BookService {
     private BookDao bookDao;
 
     //@Resource(JSR250规范的注解)
-    @Resource(name="bookDao2")
+    //@Resource(name="bookDao2")
     private BookDao bookDao2;
 
     //@Inject(JSR330规范的注解)  依赖  javax.inject 包
-    @Inject
+    //@Inject
     private BookDao bookDao3;
 
     public void print(){
