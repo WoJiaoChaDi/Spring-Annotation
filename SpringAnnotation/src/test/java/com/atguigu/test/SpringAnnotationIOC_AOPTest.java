@@ -16,7 +16,7 @@ public class SpringAnnotationIOC_AOPTest {
     public void test01(){
         ApplicationContext cxt = new AnnotationConfigApplicationContext(MainConfig_AOP.class);
         MathCalculator mathCalculator = (MathCalculator) cxt.getBean("mathCalculator");
-        mathCalculator.div(1, 2);
+        int div = mathCalculator.div(8, 0);
     }
 
 }

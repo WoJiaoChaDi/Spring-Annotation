@@ -11,6 +11,7 @@ import org.aspectj.lang.annotation.Pointcut;
 @Aspect
 public class LogAspects {
 
+
     //抽取公共的切入点表达式
     //1.本类引用        @AfterReturning("pointCut()")
     //2.其他的切面引用   @AfterThrowing("com.atguigu.aop.pointCut()")
@@ -26,18 +27,29 @@ public class LogAspects {
     }
 
     @After("execution(* com.atguigu.aop.MathCalculator.*(..))")
-    public void logAfter(){
-        System.out.println("@After运行结束。。。");
+    public void logAfter(JoinPoint joinPoint){
+
+        String methodName = joinPoint.getSignature().getName();
+        Object[] args = joinPoint.getArgs();
+
+        System.out.println("@After  " + methodName + "运行结束。。。参数列表是：" + args);
     }
 
-    @AfterReturning("pointCut()")
-    public void logAfterReturning(){
-        System.out.println("@AfterReturning运行正常返回。。。运行结果是{}");
+    //JoinPoint 一定要出现在参数表的第一位
+    @AfterReturning(value = "pointCut()", returning = "result")
+    public void logAfterReturning(JoinPoint joinPoint, Object result){
+        String methodName = joinPoint.getSignature().getName();
+        Object[] args = joinPoint.getArgs();
+
+        System.out.println("@AfterReturning  " + methodName + "运行正常返回。。。参数列表是{" + args + "};运行结果是{" + result + "}");
     }
 
-    @AfterThrowing("com.atguigu.aop.LogAspects.pointCut()")
-    public void logAfterThrowing(){
-        System.out.println("@AfterThrowing运行异常。。。参数列表是{}");
+    @AfterThrowing(value = "com.atguigu.aop.LogAspects.pointCut()", throwing = "exception")
+    public void logAfterThrowing(JoinPoint joinPoint, Exception exception){
+        String methodName = joinPoint.getSignature().getName();
+        Object[] args = joinPoint.getArgs();
+
+        System.out.println("@AfterThrowing  " + methodName + "运行异常。。。参数列表是{" + args + "}" + "异常是：" + exception);
     }
 
 }
